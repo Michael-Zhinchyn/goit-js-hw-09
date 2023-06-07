@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
-    <p><a href="index.html">Go back</a></p>
+    <p><a class="link" href="index.html">Go back</a></p>
 
-    <button type="button" data-start>Start</button>
-    <button type="button" data-stop>Stop</button>
-
+    <!-- <button type="button" data-start>Start</button>
+    <button type="button" data-stop>Stop</button> -->
+    <label class="switch">
+      <input type="checkbox" checked />
+      <div class="button">
+        <div class="light"></div>
+        <div class="dots"></div>
+        <div class="characters"></div>
+        <div class="shine"></div>
+        <div class="shadow"></div>
+      </div>
+    </label>
     <script src="js/01-color-switcher.js" type="module"></script>
   </body>
 </html>
