@@ -102,7 +102,7 @@ body {
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 70px solid #df615c;
+  border-bottom: 70px solid #4a7ae1;
 }
 
 .mill {
@@ -117,7 +117,7 @@ body {
 .mill:after {
   position: absolute;
   content: "";
-  background-color: #41155a;
+  background-color: #cd9f2b;
   height: 50px;
   width: 40px;
   bottom: 0;
@@ -129,7 +129,7 @@ body {
 .mill:before {
   position: absolute;
   content: "";
-  background-color: #41155a;
+  background-color: #f6de0b;
   height: 40px;
   width: 30px;
   top: 20px;
@@ -151,7 +151,7 @@ body {
 .house:after {
   content: "";
   position: absolute;
-  background-color: #41155a;
+  background-color: #15155a;
   width: 20px;
   height: 30px;
   bottom: 0;
@@ -168,7 +168,7 @@ body {
 .bush li {
   float: left;
   list-style: none;
-  background-color: #df615c;
+  background-color: #327932;
   width: 40px;
   height: 25px;
   border-radius: 100px 100px 0 0;
@@ -187,7 +187,7 @@ body {
 
 .tree li {
   list-style: none;
-  background-color: #41155a;
+  background-color: #155a29;
   width: 45px;
   height: 45px;
   border-radius: 100%;
@@ -257,4 +257,55 @@ body {
   100% {
     transform: translateX(340px);
   }
+}
+
+[data-link] {
+  color: rgb(0, 110, 255);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  padding: 8px 20px;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgb(255, 136, 0);
+  margin: -15px 0 0 -15px;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+
+.cursor .cursor-ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgb(255, 179, 0);
+  margin: -2px 0 0 -2px;
+  transition: all 0.4s ease-out;
+}
+
+.cursor.hover {
+  border-radius: 8px;
+}
+
+.cursor.hover .cursor-ball {
+  left: 13px;
+}
+
+.nav {
+ padding-top: 35px;
+ display: flex;
+ justify-content: center;
 }
