@@ -1,2 +1,0 @@
-!function(){var t,n=document.querySelector('.switch input[type="checkbox"]');function o(){return"#".concat(Math.floor(16777215*Math.random()).toString(16).padStart(6,0))}n.addEventListener("change",(function(){n.checked?t=setInterval((function(){document.body.style.backgroundColor=o(),n.style.backgroundColor=o()}),1e3):(n.style.backgroundColor=o(),clearInterval(t))}))}();
-//# sourceMappingURL=01-color-switcher.e15a0298.js.map
