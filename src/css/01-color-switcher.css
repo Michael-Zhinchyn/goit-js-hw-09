@@ -163,9 +163,8 @@ body {
   color: #ff1818;
 }
 
-.audio-player {
+.music {
   position: fixed;
-
   right: 1%;
   bottom: 5%;
 }
