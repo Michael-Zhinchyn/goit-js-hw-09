@@ -162,3 +162,10 @@ body {
 .link:hover {
   color: #ff1818;
 }
+
+.audio-player {
+  position: fixed;
+
+  right: 1%;
+  bottom: 5%;
+}
