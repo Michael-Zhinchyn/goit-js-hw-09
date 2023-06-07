@@ -1,0 +1,2 @@
+const t=document.querySelector('.switch input[type="checkbox"]');let e;function o(){return`#${Math.floor(16777215*Math.random()).toString(16).padStart(6,0)}`}Object.assign(t.style,{width:"200px",height:"100px",borderRadius:"10px",borderColor:"transparent",fontSize:"30px"}),t.addEventListener("change",(()=>{t.checked?e=setInterval((()=>{document.body.style.backgroundColor=o(),t.style.backgroundColor=o()}),1e3):(t.style.backgroundColor=o(),clearInterval(e))}));
+//# sourceMappingURL=01-color-switcher.48d77489.js.map
