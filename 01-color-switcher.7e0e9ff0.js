@@ -1,2 +1,0 @@
-!function(){var t,e=document.querySelector('.switch input[type="checkbox"]');function o(){return"#".concat(Math.floor(16777215*Math.random()).toString(16).padStart(6,0))}Object.assign(e.style,{width:"200px",height:"100px",borderRadius:"10px",borderColor:"transparent",fontSize:"30px"}),e.addEventListener("change",(function(){e.checked?t=setInterval((function(){document.body.style.backgroundColor=o(),e.style.backgroundColor=o()}),1e3):(e.style.backgroundColor=o(),clearInterval(t))}))}();
-//# sourceMappingURL=01-color-switcher.7e0e9ff0.js.map
