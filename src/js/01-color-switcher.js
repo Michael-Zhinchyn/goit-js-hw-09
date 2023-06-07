@@ -1,15 +1,5 @@
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 
-let commonStyles = {
-  width: '200px',
-  height: '100px',
-  borderRadius: '10px',
-  borderColor: 'transparent',
-  fontSize: '30px',
-};
-
-Object.assign(toggleSwitch.style, commonStyles);
-
 let timerId;
 
 function getRandomHexColor() {
