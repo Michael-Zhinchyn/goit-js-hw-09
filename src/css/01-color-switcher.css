@@ -6,7 +6,7 @@ html {
 
 body {
   background-color: #fafcff;
-  background-image: radial-gradient(circle, transparent, #afb5bfc1), linear-gradient(transparent, #d3d8e0);
+  background-image: radial-gradient(circle, transparent, #afb5bfaf), linear-gradient(transparent, #d3d8e0);
   display: flex;
   align-items: center;
   justify-content: center;
