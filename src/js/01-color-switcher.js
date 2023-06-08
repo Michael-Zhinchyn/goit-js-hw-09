@@ -8,7 +8,7 @@ const audio = new Audio(
 // встановлюємо рівень гучності по деволту
 audioPlayer.volume = 0.5;
 
-let timerId;
+let timerId = null
 
 // функція генерування випадкових кольорів
 function getRandomHexColor() {
