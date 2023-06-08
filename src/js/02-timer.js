@@ -1,7 +1,9 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
+// Знаходимо кнопку старту
 const startBtn = document.querySelector('button[data-start]');
+// створюємо змінну для запису обраної дати
 let targetDate = null;
 
 const options = {
@@ -11,6 +13,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     targetDate = selectedDates[0];
+    // Створюємо перевірку. Якщо Вибрана дата вже пройшла, виводимо повідомлення
     if (targetDate.getTime() < options.defaultDate.getTime()) {
       window.alert('Please choose a date in the future');
     }
@@ -19,27 +22,34 @@ const options = {
 
 flatpickr('input#datetime-picker', options);
 
-// Get the elements
+// Отримуємо елементи з розмітки
 const daysSpan = document.querySelector('[data-days]');
 const hoursSpan = document.querySelector('[data-hours]');
 const minutesSpan = document.querySelector('[data-minutes]');
 const secondsSpan = document.querySelector('[data-seconds]');
 
+// Створюємо обробника події
 startBtn.addEventListener('click', () => {
+  //Якщо обрана дата валідна, то створюємо інтервал зворотнього відліку
   if (targetDate) {
-    let countdown = setInterval(() => {
+    //Створюємо інтервал
+    let timer = setInterval(() => {
+      // Для цього визначаємо теперішню дату
       let currentDateInMs = new Date().getTime();
+      // знаходимо в мілісекундах різницю між обраною датою і теперішньою
       let timeDiff = targetDate.getTime() - currentDateInMs;
 
+      // Якщо відлік закінчився, виводимо в консоль 'Timer Finished'
       if(timeDiff <= 0) {
-        clearInterval(countdown);
-        console.log('Countdown Finished');
+        clearInterval(timer);
+        console.log('Timer Finished');
         return;
       } 
 
+      // Присвоюємо змінній залишковий час
       let remainingTime = convertMs(timeDiff);
 
-      // Update the DOM
+      // Оновлюємо DOM
       daysSpan.textContent = String(remainingTime.days).padStart(2, '0');
       hoursSpan.textContent = String(remainingTime.hours).padStart(2, '0');
       minutesSpan.textContent = String(remainingTime.minutes).padStart(2, '0');
@@ -48,6 +58,7 @@ startBtn.addEventListener('click', () => {
   }
 })
 
+// функція конвертора мілісекунд в секунди, хвилини, години, дні.
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
