@@ -24,8 +24,8 @@ const options = {
     targetDate = selectedDates[0];
     if (targetDate.getTime() < options.defaultDate.getTime()) {
       alertSound.play()
-      Notiflix.Report.warning('упс! обрану дату з\'їли динозаври',
-      'Будь ласка, оберіть дату в майбутньому',
+      Notiflix.Report.warning('Упс ! Обрану дату з\'їли динозаври...',
+      'Будь ласка, оберіть дату з майбутнього',
       'Гаразд')
       startBtn.classList.remove("valid-date");
       startBtn.classList.add("invalid-date");
