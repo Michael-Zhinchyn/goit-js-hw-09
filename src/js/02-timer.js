@@ -17,12 +17,16 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     targetDate = selectedDates[0];
-    // Створюємо перевірку. Якщо Вибрана дата вже пройшла, виводимо повідомлення
     if (targetDate.getTime() < options.defaultDate.getTime()) {
       alertSound.play()
       Notiflix.Report.warning('упс! обрану дату з\'їли динозаври',
       'Будь ласка, оберіть дату в майбутньому',
       'Гаразд')
+      startBtn.classList.remove("valid-date");
+      startBtn.classList.add("invalid-date");
+    } else {
+      startBtn.classList.remove("invalid-date");
+      startBtn.classList.add("valid-date");
     }
   },
 };
@@ -99,21 +103,12 @@ function convertMs(ms) {
 
 
 
-// ------------------------ BUTTON --------------------------
+// // ------------------------ BUTTON  VISUAL --------------------------
 const createSVG = (width, height, radius) => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const rectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 
-  const rectangle = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "rect"
-  );
-
-  svg.setAttributeNS(
-    "http://www.w3.org/2000/svg",
-    "viewBox",
-    `0 0 ${width} ${height}`
-  );
-
+  svg.setAttributeNS("http://www.w3.org/2000/svg", "viewBox", `0 0 ${width} ${height}`);
   rectangle.setAttribute("x", "0");
   rectangle.setAttribute("y", "0");
   rectangle.setAttribute("width", "100%");
@@ -123,19 +118,22 @@ const createSVG = (width, height, radius) => {
   rectangle.setAttribute("pathLength", "10");
 
   svg.appendChild(rectangle);
-
   return svg;
 };
 
+const createSVGGroup = (svg) => {
+  const group = document.createElement("div");
+  group.appendChild(svg.cloneNode(true));
+  group.appendChild(svg.cloneNode(true));
+  group.appendChild(svg.cloneNode(true));
+  group.appendChild(svg.cloneNode(true));
+  return group;
+}
+
 document.querySelectorAll(".sketch-button").forEach((button) => {
   const style = getComputedStyle(button);
-
   const lines = document.createElement("div");
-
   lines.classList.add("lines");
-
-  const groupTop = document.createElement("div");
-  const groupBottom = document.createElement("div");
 
   const svg = createSVG(
     button.offsetWidth,
@@ -143,18 +141,8 @@ document.querySelectorAll(".sketch-button").forEach((button) => {
     parseInt(style.borderRadius, 10)
   );
 
-  groupTop.appendChild(svg);
-  groupTop.appendChild(svg.cloneNode(true));
-  groupTop.appendChild(svg.cloneNode(true));
-  groupTop.appendChild(svg.cloneNode(true));
-
-  groupBottom.appendChild(svg.cloneNode(true));
-  groupBottom.appendChild(svg.cloneNode(true));
-  groupBottom.appendChild(svg.cloneNode(true));
-  groupBottom.appendChild(svg.cloneNode(true));
-
-  lines.appendChild(groupTop);
-  lines.appendChild(groupBottom);
+  lines.appendChild(createSVGGroup(svg));
+  lines.appendChild(createSVGGroup(svg));
 
   button.appendChild(lines);
 
