@@ -34,7 +34,7 @@ body {
 .input-group {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   margin-top: 3vh; /* added this line to create some space under the timer */
   width: 100%;
 }

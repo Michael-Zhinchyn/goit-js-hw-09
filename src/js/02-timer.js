@@ -1,6 +1,8 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
+const alertSound = document.querySelector('#alertSound')
+alertSound.volume = 0.3
 
 
 // Знаходимо кнопку старту
@@ -17,7 +19,7 @@ const options = {
     targetDate = selectedDates[0];
     // Створюємо перевірку. Якщо Вибрана дата вже пройшла, виводимо повідомлення
     if (targetDate.getTime() < options.defaultDate.getTime()) {
-      
+      alertSound.play()
       Notiflix.Report.warning('упс! обрану дату з\'їли динозаври',
       'Будь ласка, оберіть дату в майбутньому',
       'Гаразд')
