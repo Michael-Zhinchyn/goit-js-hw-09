@@ -1,12 +1,17 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
+
 const alertSound = document.querySelector('#alertSound')
 alertSound.volume = 0.3
 
 
 // Знаходимо кнопку старту
 const startBtn = document.querySelector('button[data-start]');
+// знаходжу кнопку для ресету
+const resetBtn = document.querySelector('button[data-reset]')
+
+
 // створюємо змінну для запису обраної дати
 let targetDate = null;
 
@@ -39,23 +44,24 @@ const hoursSpan = document.querySelector('[data-hours]');
 const minutesSpan = document.querySelector('[data-minutes]');
 const secondsSpan = document.querySelector('[data-seconds]');
 
-// Створюємо обробника події
+
 startBtn.addEventListener('click', () => {
-  //Якщо обрана дата валідна, то створюємо інтервал зворотнього відліку
+  
   if (targetDate) {
-    //Створюємо інтервал
-    let timer = setInterval(() => {
-      // Для цього визначаємо теперішню дату
+   
+    const timer = setInterval(() => {
+      
       let currentDateInMs = new Date().getTime();
-      // знаходимо в мілісекундах різницю між обраною датою і теперішньою
+      
       let timeDiff = targetDate.getTime() - currentDateInMs;
 
-      // Якщо відлік закінчився, виводимо в консоль 'Timer Finished'
+      
       if(timeDiff <= 0) {
         clearInterval(timer);
-        console.log('Timer Finished');
+        
         return;
       } 
+
 
       // Присвоюємо змінній залишковий час
       let remainingTime = convertMs(timeDiff);
@@ -66,8 +72,11 @@ startBtn.addEventListener('click', () => {
       minutesSpan.textContent = String(remainingTime.minutes).padStart(2, '0');
       secondsSpan.textContent = String(remainingTime.seconds).padStart(2, '0');
     },1000);
+
+    
   }
 })
+
 
 // функція конвертора мілісекунд в секунди, хвилини, години, дні.
 function convertMs(ms) {
@@ -106,9 +115,18 @@ function convertMs(ms) {
 // // ------------------------ BUTTON  VISUAL --------------------------
 const createSVG = (width, height, radius) => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  const rectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 
-  svg.setAttributeNS("http://www.w3.org/2000/svg", "viewBox", `0 0 ${width} ${height}`);
+  const rectangle = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "rect"
+  );
+
+  svg.setAttributeNS(
+    "http://www.w3.org/2000/svg",
+    "viewBox",
+    `0 0 ${width} ${height}`
+  );
+
   rectangle.setAttribute("x", "0");
   rectangle.setAttribute("y", "0");
   rectangle.setAttribute("width", "100%");
@@ -118,22 +136,19 @@ const createSVG = (width, height, radius) => {
   rectangle.setAttribute("pathLength", "10");
 
   svg.appendChild(rectangle);
+
   return svg;
 };
 
-const createSVGGroup = (svg) => {
-  const group = document.createElement("div");
-  group.appendChild(svg.cloneNode(true));
-  group.appendChild(svg.cloneNode(true));
-  group.appendChild(svg.cloneNode(true));
-  group.appendChild(svg.cloneNode(true));
-  return group;
-}
-
 document.querySelectorAll(".sketch-button").forEach((button) => {
   const style = getComputedStyle(button);
+
   const lines = document.createElement("div");
+
   lines.classList.add("lines");
+
+  const groupTop = document.createElement("div");
+  const groupBottom = document.createElement("div");
 
   const svg = createSVG(
     button.offsetWidth,
@@ -141,8 +156,18 @@ document.querySelectorAll(".sketch-button").forEach((button) => {
     parseInt(style.borderRadius, 10)
   );
 
-  lines.appendChild(createSVGGroup(svg));
-  lines.appendChild(createSVGGroup(svg));
+  groupTop.appendChild(svg);
+  groupTop.appendChild(svg.cloneNode(true));
+  groupTop.appendChild(svg.cloneNode(true));
+  groupTop.appendChild(svg.cloneNode(true));
+
+  groupBottom.appendChild(svg.cloneNode(true));
+  groupBottom.appendChild(svg.cloneNode(true));
+  groupBottom.appendChild(svg.cloneNode(true));
+  groupBottom.appendChild(svg.cloneNode(true));
+
+  lines.appendChild(groupTop);
+  lines.appendChild(groupBottom);
 
   button.appendChild(lines);
 
