@@ -1,32 +1,174 @@
-.timer {
-    display: flex;
-    position: absolute;
-    top: 25%;
-    left: 20%;
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
 
-    align-items: center;
-    gap: 20px;
+* {
+  box-sizing: inherit;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  font-family: "Inter", Arial;
+  justify-content: center;
+  align-items: center;
+  background-color: #212f39;
+}
+
+.back-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ffd700;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.back-link:hover {
+  color: rgb(0, 170, 255);
+}
+
+.timer {
+  display: flex;
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  align-items: center;
+  gap: 20px;
+}
+
+.timer .field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d4c5a;
+  /* updated background color */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.timer .field .value {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffd700;
+  /* updated font color */
+}
+
+.timer .field .label {
+  font-size: 0.9em;
+  color: #f8f8ff;
+  /* updated font color */
+}
+
+.input-field {
+  position: absolute;
+  top: 24%;
+  left: 34%;
+  transform: translateX(-50%);
+  background-color: #6b7f94;
+  /* updated background color */
+  color: #ffd700;
+  /* updated font color */
+  outline: none;
+}
+
+
+.sketch-button {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: transparent;
+  /* background-image: linear-gradient(90deg, #fcecfe, #fbf6e7, #e6fcf5); */
+  border-radius: 11px;
+  padding: 12px 20px;
+  position: absolute;
+  right: 15%;
+  top: 22%;
+  line-height: 24px;
+  color: #ffd700;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 4px 16px rgba(0, 0, 0, 0.02), 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.sketch-button.start svg {
+  animation: stroke 1s linear;
+}
+
+.sketch-button .lines {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: hard-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sketch-button .lines>div {
+  position: absolute;
+  inset: 0;
+}
+
+.sketch-button .lines>div:last-child {
+  transform: rotate(180deg);
+}
+
+.sketch-button .lines>div svg {
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  fill: none;
+  stroke-width: 2;
+  stroke: #c9e9ff;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 2 10;
+  stroke-dashoffset: 14;
+  opacity: 0;
+}
+
+.sketch-button .lines>div svg:nth-child(1) {
+  stroke: #f8fcff;
+}
+
+.sketch-button .lines>div svg:nth-child(2) {
+  stroke-width: 6px;
+  filter: blur(20px);
+}
+
+.sketch-button .lines>div svg:nth-child(3) {
+  stroke-width: 5px;
+  filter: blur(6px);
+}
+
+.sketch-button .lines>div svg:nth-child(4) {
+  stroke-width: 10px;
+  filter: blur(56px);
+}
+
+@keyframes stroke {
+
+  30%,
+  55% {
+    opacity: 1;
   }
-  
-  .timer .field {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+
+  100% {
+    stroke-dashoffset: 4;
+    opacity: 0;
   }
-  
-  .timer .field .value {
-    font-size: 2em;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .timer .field .label {
-    font-size: 0.9em;
-    color: #777;
-  }
-  
+
+}
+
