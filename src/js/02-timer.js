@@ -17,7 +17,7 @@ const options = {
     targetDate = selectedDates[0];
     // Створюємо перевірку. Якщо Вибрана дата вже пройшла, виводимо повідомлення
     if (targetDate.getTime() < options.defaultDate.getTime()) {
-      Notiflix.Report.warning('упс... хибна дата',
+      Notiflix.Report.warning('упс! обрану дату з\'їли динозаври',
       'Будь ласка, оберіть дату в майбутньому',
       'Гаразд')
     }
