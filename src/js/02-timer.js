@@ -1,5 +1,7 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
+
 
 // Знаходимо кнопку старту
 const startBtn = document.querySelector('button[data-start]');
@@ -15,7 +17,9 @@ const options = {
     targetDate = selectedDates[0];
     // Створюємо перевірку. Якщо Вибрана дата вже пройшла, виводимо повідомлення
     if (targetDate.getTime() < options.defaultDate.getTime()) {
-      window.alert('Please choose a date in the future');
+      Notiflix.Report.warning('упс',
+      'Будь ласка, оберіть дату в майбутньому',
+      'Гаразд')
     }
   },
 };
