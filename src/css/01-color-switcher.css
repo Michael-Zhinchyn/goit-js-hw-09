@@ -170,3 +170,22 @@ body {
   top: 4%;
 }
 
+@media (max-width: 480px) {
+  .switch {
+    width: 100px;
+    height: 130px;
+    padding: 10px;
+  }
+
+  .link {
+    font-size: 1em;
+    top: 2%;
+    left: 2%;
+  }
+
+  .music {
+    right: 1%;
+    top: 2%;
+  }
+}
+

@@ -226,3 +226,27 @@ button[data-start].invalid-date:hover {
 
 }
 
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .timer .field {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .timer .field .value {
+    font-size: 1.5em;
+  }
+
+  .input-field {
+    width: 90%;
+  }
+
+  .sketch-button, button[data-start] {
+    font-size: 1.2em;
+    padding: 8px 16px;
+  }
+}
