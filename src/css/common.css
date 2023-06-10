@@ -34,7 +34,6 @@ canvas {
   color: rgb(240, 240, 33);
 }
 
-
 [data-link] {
   color: rgb(0, 110, 255);
   text-transform: uppercase;
@@ -86,3 +85,22 @@ canvas {
  justify-content: center;
 }
 
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav a {
+    margin: 10px 0;
+  }
+  
+  [data-link] {
+    padding: 5px 10px;
+  }
+  
+  .cursor {
+    width: 20px;
+    height: 20px;
+  }
+}
