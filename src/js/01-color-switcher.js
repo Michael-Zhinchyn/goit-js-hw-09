@@ -6,7 +6,7 @@ const audio = new Audio(
 );
 
 // встановлюємо рівень гучності по деволту
-audioPlayer.volume = 0.5;
+audioPlayer.volume = 0.3;
 
 let timerId = null
 
