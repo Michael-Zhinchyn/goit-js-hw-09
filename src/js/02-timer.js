@@ -3,7 +3,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
-// Знайти елементи на сторінці за допомогою CSS селекторів
+// Знаходимо елементи на сторінці.
 const daysSpan = document.querySelector('[data-days]');
 const hoursSpan = document.querySelector('[data-hours]');
 const minutesSpan = document.querySelector('[data-minutes]');
@@ -13,7 +13,7 @@ const alertSound = document.querySelector('#alertSound');
 // Налаштування гучності звуку
 alertSound.volume = 0.3;
 
-// Знайти кнопку start на сторінці
+// Знаходимо кнопку start на сторінці
 const startBtn = document.querySelector('button[data-start]');
 
 // Налаштування для вибору дати та часу
@@ -40,15 +40,15 @@ const options = {
   },
 };
 
-// Використання flatpickr для вибору дати та часу
+// Використовуємо flatpickr для вибору дати та часу
 flatpickr('input#datetime-picker', options);
 
-// Ініціалізація змінних для відстеження цільової дати та таймера
+// Ініціалізуємо змінні для відстеження цільової дати та таймера
 let targetDate = null;
 let timer = null;
 const interval = 1000;
 
-// Додавання слухача подій до кнопки start
+// Додаємо слухача подій до кнопки start
 startBtn.addEventListener('click', () => {
   if (targetDate && !timer) { 
       timer = setInterval(() => {
@@ -86,7 +86,7 @@ startBtn.addEventListener('click', () => {
             reloadIcon.innerHTML = "&#8635; reset";
 
               
-            // Додавання слухача подій до іконки перезавантаження
+            // Додаємо слухача подій до іконки перезавантаження
             reloadIcon.addEventListener('click', function() {
                 location.reload();
             });
