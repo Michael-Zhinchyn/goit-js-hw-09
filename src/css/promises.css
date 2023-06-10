@@ -1,0 +1,97 @@
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  * {
+    box-sizing: inherit;
+  }
+  
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 5vh;
+    font-family: "Inter", Arial;
+    background-color: #212f39;
+  }
+  
+  p {
+    color: #f8f8ff;
+  }
+  
+  a {
+    color: #ffd700;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(0, 170, 255);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 3vh;
+    background-color: #3d4c5a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    width: 80%;
+  }
+  
+  .form label {
+    color: #ffd900dc;
+    margin-bottom: 10px;
+    
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .form input {
+    width: 100%; 
+    padding: 10px; 
+    font-size: 1.5em; 
+    background-color: #6b7f94;
+    color: #ffd700;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .form button {
+    margin-top: 20px;
+    
+    cursor: pointer;
+    border: 1 px solid #ffd700;
+    font-family: inherit;
+    font-size: 1.2em;
+    font-weight: 400;
+    background-color: transparent;
+    border-radius: 11px;
+    padding: 12px 20px;
+    line-height: 24px;
+    color: #ffc400;
+    /* box-shadow: 0 1px 2px rgb(255, 217, 0), 0 4px 16px rgba(255, 255, 255, 0.02), 0 4px 24px rgba(223, 214, 214, 0.02); */
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .form button:hover {
+    color: #ffffff;
+  }
+  
+  .form button:active {
+    color: #55ff00; /* колір при натисканні */
+}
+

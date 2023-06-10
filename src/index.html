@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homework 9</title>
     <link rel="stylesheet" href="css/common.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 75%;
+        background: #222;
+        font-family: arial;
+        padding: 20px 0 0 20px;
+        position: relative;
+      }
+      canvas {
+        border: 1px solid #181818;
+        display: block;
+        box-shadow: 0 0 10px #111;
+        z-index: 1;
+      }
+      .nav {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        text-align: center;
+      }
+      .nav a {
+        text-decoration: none;
+        font-size: 16px;
+        margin: 0 20px;
+        font-weight: 300;
+        color: rgb(240, 240, 33);
+      }
+    </style>
   </head>
   <body>
     <nav class="nav">
@@ -13,34 +50,6 @@
       <a href="03-promises.html" data-link>Promise generator</a>
     </nav>
 
-    <div class="windmill">
-      <div class="hills"></div>
-      <div class="wheel">
-        <div class="windwheel"></div>
-        <div class="windwheel windwheel2"></div>
-        <div class="windwheel windwheel3"></div>
-        <div class="windwheel windwheel4"></div>
-      </div>
-      <div class="roof"></div>
-      <div class="mill"></div>
-      <div class="house"></div>
-      <ul class="tree">
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <ul class="bush">
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <ul class="bush bush2">
-        <li></li>
-        <li></li>
-      </ul>
-      <div class="cloud"></div>
-      <div class="cloud cloud2"></div>
-    </div>
     <div class="cursor">
       <div class="cursor-ball"></div>
     </div>
