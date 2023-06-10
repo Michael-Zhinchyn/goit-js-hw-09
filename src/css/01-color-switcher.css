@@ -5,8 +5,8 @@ html {
 }
 
 body {
-  background-color: #fafcff;
-  background-image: radial-gradient(circle, transparent, #afb5bfaf), linear-gradient(transparent, #d3d8e0);
+  background-color: #222;
+  background-image: radial-gradient(circle, transparent, #afb5bf59), linear-gradient(transparent, #d3d8e0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,17 +154,17 @@ body {
   position: absolute;
   top: 10%;
   left: 10%;
-  color: #1842ff;
-  font-size: 20px;
+  color: #ffd700;
+  font-size: 1.5em;
   text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 
 .link:hover {
-  color: #ff1818;
+  color: rgb(0, 170, 255);
 }
 
 .music {
-  
   position: fixed;
   right: 1%;
   bottom: 5%;
