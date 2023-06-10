@@ -9,6 +9,7 @@ const secondsSpan = document.querySelector('[data-seconds]');
 const alertSound = document.querySelector('#alertSound');
 alertSound.volume = 0.3;
 
+
 const startBtn = document.querySelector('button[data-start]');
 
 const options = {
@@ -43,33 +44,59 @@ const interval = 1000
 
 
 startBtn.addEventListener('click', () => {
-  if (targetDate) {
-    timer = setInterval(() => {
-      let currentDateInMs = new Date().getTime();
+  if (targetDate && !timer) { // Add the condition to only start a new timer if one isn't already running
+      timer = setInterval(() => {
+          let currentDateInMs = new Date().getTime();
 
-      let timeDiff = targetDate.getTime() - currentDateInMs;
+          let timeDiff = targetDate.getTime() - currentDateInMs;
 
-      if (timeDiff <= 0) {
-        clearInterval(timer);
-        return;
-      }
+          if (timeDiff <= 0) {
+              clearInterval(timer);
+              timer = null; // Ensure the timer is set to null after clearing it
+              
+              // Remove the reload button if the timer ends
+              let reloadIcon = document.querySelector('.reload-icon');
+              if (reloadIcon) {
+                  document.body.removeChild(reloadIcon);
+              }
 
-      let remainingTime = convertMs(timeDiff);
+              return;
+          }
 
-      // // Оновлюємо DOM
-      const timeUnits = {
-        days: daysSpan,
-        hours: hoursSpan,
-        minutes: minutesSpan,
-        seconds: secondsSpan,
-      };
-      
-      Object.keys(timeUnits).forEach((unit) => {
-        timeUnits[unit].textContent = String(remainingTime[unit]).padStart(2, '0');
-      });
-    }, interval);
+          let remainingTime = convertMs(timeDiff);
+
+          // Оновлюємо DOM
+          const timeUnits = {
+              days: daysSpan,
+              hours: hoursSpan,
+              minutes: minutesSpan,
+              seconds: secondsSpan,
+          };
+          
+          Object.keys(timeUnits).forEach((unit) => {
+              timeUnits[unit].textContent = String(remainingTime[unit]).padStart(2, '0');
+          });
+          
+          // Add check to see if the reload icon already exists
+          if (!document.querySelector('.reload-icon')) {
+            const reloadIcon = document.createElement('div');
+            reloadIcon.classList.add('reload-icon'); 
+            reloadIcon.textContent = 'reset 🔄';
+              
+            reloadIcon.addEventListener('click', function() {
+                location.reload();
+            });
+        
+            const container = document.querySelector('.container'); 
+        
+            container.appendChild(reloadIcon); 
+        }
+        
+
+      }, interval);
   }
 });
+
 
 
 

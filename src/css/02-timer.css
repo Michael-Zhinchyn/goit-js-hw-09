@@ -120,7 +120,7 @@ button[data-start].invalid-date {
   border-radius: 11px;
   padding: 12px 20px;
   line-height: 24px;
-  color: #ffd700;
+  color: #ffd90086;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 4px 16px rgba(0, 0, 0, 0.02), 0 4px 24px rgba(0, 0, 0, 0.02);
   transition: color 0.25s ease-in-out;
 }
@@ -147,7 +147,7 @@ button[data-start].invalid-date {
 
 .sketch-button:hover,
 button[data-start].valid-date:hover {
-  color: #66ff00;
+  color: #00ff00a9;
 }
 
 .sketch-button:hover,
@@ -210,6 +210,19 @@ button[data-start].invalid-date:hover {
 .sketch-button .lines>div svg:nth-child(4) {
   stroke-width: 10px;
   filter: blur(56px);
+}
+
+.reload-icon {
+  position: absolute;
+right: 28%;
+top: 37%;
+color: #ffd700;
+font-size: 17px;
+cursor: pointer;
+transition: color 0.3s ease-in-out;
+}
+.reload-icon:hover {
+  color: #00ff00a9;
 }
 
 @keyframes stroke {
