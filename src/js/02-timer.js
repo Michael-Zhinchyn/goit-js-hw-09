@@ -95,8 +95,8 @@ startBtn.addEventListener('click', () => {
             container.appendChild(reloadIcon); 
         }
 
-        startBtn.classList.remove('valid-date');
-        startBtn.classList.add('invalid-date');
+        startBtn.style.display = 'none'
+    
 
       }, interval);
   }
