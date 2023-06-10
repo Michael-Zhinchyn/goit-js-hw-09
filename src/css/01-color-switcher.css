@@ -152,7 +152,7 @@ body {
 
 .link {
   position: absolute;
-  top: 10%;
+  top: 6%;
   left: 10%;
   color: #ffd700;
   font-size: 1.5em;
@@ -166,7 +166,7 @@ body {
 
 .music {
   position: fixed;
-  right: 1%;
-  bottom: 5%;
+  right: 2%;
+  top: 4%;
 }
 
