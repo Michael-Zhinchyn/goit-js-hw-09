@@ -1,17 +1,22 @@
+// Імпортуємо потрібні бібліотеки
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
+// Знайти елементи на сторінці за допомогою CSS селекторів
 const daysSpan = document.querySelector('[data-days]');
 const hoursSpan = document.querySelector('[data-hours]');
 const minutesSpan = document.querySelector('[data-minutes]');
 const secondsSpan = document.querySelector('[data-seconds]');
 const alertSound = document.querySelector('#alertSound');
+
+// Налаштування гучності звуку
 alertSound.volume = 0.3;
 
-
+// Знайти кнопку start на сторінці
 const startBtn = document.querySelector('button[data-start]');
 
+// Налаштування для вибору дати та часу
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -35,26 +40,24 @@ const options = {
   },
 };
 
+// Використання flatpickr для вибору дати та часу
 flatpickr('input#datetime-picker', options);
 
-
+// Ініціалізація змінних для відстеження цільової дати та таймера
 let targetDate = null;
 let timer = null;
-const interval = 1000
+const interval = 1000;
 
-
+// Додавання слухача подій до кнопки start
 startBtn.addEventListener('click', () => {
-  if (targetDate && !timer) { // Add the condition to only start a new timer if one isn't already running
+  if (targetDate && !timer) { 
       timer = setInterval(() => {
           let currentDateInMs = new Date().getTime();
-
           let timeDiff = targetDate.getTime() - currentDateInMs;
-
           if (timeDiff <= 0) {
               clearInterval(timer);
-              timer = null; // Ensure the timer is set to null after clearing it
+              timer = null; 
               
-              // Remove the reload button if the timer ends
               let reloadIcon = document.querySelector('.reload-icon');
               if (reloadIcon) {
                   document.body.removeChild(reloadIcon);
@@ -64,8 +67,6 @@ startBtn.addEventListener('click', () => {
           }
 
           let remainingTime = convertMs(timeDiff);
-
-          // Оновлюємо DOM
           const timeUnits = {
               days: daysSpan,
               hours: hoursSpan,
@@ -73,34 +74,35 @@ startBtn.addEventListener('click', () => {
               seconds: secondsSpan,
           };
           
+          // Оновлення відображення часу на сторінці
           Object.keys(timeUnits).forEach((unit) => {
               timeUnits[unit].textContent = String(remainingTime[unit]).padStart(2, '0');
           });
           
-          // Add check to see if the reload icon already exists
+          // Перевірка чи іконка для перезавантаження вже існує
           if (!document.querySelector('.reload-icon')) {
             const reloadIcon = document.createElement('div');
             reloadIcon.classList.add('reload-icon'); 
-            reloadIcon.textContent = 'reset 🔄';
+            reloadIcon.innerHTML = "&#8635; reset";
+
               
+            // Додавання слухача подій до іконки перезавантаження
             reloadIcon.addEventListener('click', function() {
                 location.reload();
             });
         
             const container = document.querySelector('.container'); 
-        
             container.appendChild(reloadIcon); 
         }
-        
+
+        startBtn.classList.remove('valid-date');
+        startBtn.classList.add('invalid-date');
 
       }, interval);
   }
 });
 
-
-
-
-// функція конвертора мілісекунд в секунди, хвилини, години, дні.
+// Функція для перетворення мілісекунд в дні, години, хвилини, та секунди
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -114,21 +116,6 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
