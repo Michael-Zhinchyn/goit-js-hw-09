@@ -13,6 +13,9 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -35,14 +38,15 @@ body {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 3vh; /* added this line to create some space under the timer */
+  margin-top: 3vh;
+  /* added this line to create some space under the timer */
   width: 100%;
 }
 
 .back-link {
   position: absolute;
-  top: 4%;
-  left: 10%;
+  top: 2%;
+  left: 9%;
   color: #ffd700;
   font-size: 1.5em;
   text-decoration: none;
@@ -59,7 +63,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-bottom: 3vh; /* added this line to create some space under the timer */
+  margin-bottom: 3vh;
+  /* added this line to create some space under the timer */
 }
 
 .timer .field {
@@ -106,11 +111,14 @@ button[data-start].invalid-date {
 }
 
 .sketch-button {
-  position: relative; /* Updated to position the reload-icon properly */
+  position: relative;
+  /* Updated to position the reload-icon properly */
   /* other properties... */
 }
-.sketch-button, button[data-start].valid-date {
-  
+
+.sketch-button,
+button[data-start].valid-date {
+
   display: block;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
@@ -129,8 +137,9 @@ button[data-start].invalid-date {
   transition: color 0.25s ease-in-out;
 }
 
-.sketch-button, button[data-start].invalid-date {
-  
+.sketch-button,
+button[data-start].invalid-date {
+
   display: block;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
@@ -218,13 +227,14 @@ button[data-start].invalid-date:hover {
 
 .reload-icon {
   position: absolute;
-right: 30%;
-top: 37%;
-color: #00ff00dc;
-font-size: 17px;
-cursor: pointer;
-transition: color 0.3s ease-in-out;
+  right: 30%;
+  top: 37%;
+  color: #00ff00dc;
+  font-size: 17px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
 }
+
 .reload-icon:hover {
   color: #ffd700;
 
@@ -248,7 +258,8 @@ transition: color 0.3s ease-in-out;
   .input-group {
     flex-direction: column;
     gap: 20px;
-    justify-content: center; /* вирівнюємо елементи по горизонталі */
+    justify-content: center;
+    /* вирівнюємо елементи по горизонталі */
   }
 
   .timer .field {
@@ -262,12 +273,13 @@ transition: color 0.3s ease-in-out;
 
   .input-field {
     width: 90%;
-    margin: 0 auto; /* вирівнюємо по центру */
+    margin: 0 auto;
+    /* вирівнюємо по центру */
   }
 
-  .sketch-button, button[data-start] {
+  .sketch-button,
+  button[data-start] {
     font-size: 1.2em;
     padding: 8px 16px;
   }
 }
-
