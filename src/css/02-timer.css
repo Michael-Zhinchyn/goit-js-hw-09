@@ -248,6 +248,7 @@ transition: color 0.3s ease-in-out;
   .input-group {
     flex-direction: column;
     gap: 20px;
+    justify-content: center; /* вирівнюємо елементи по горизонталі */
   }
 
   .timer .field {
@@ -261,6 +262,7 @@ transition: color 0.3s ease-in-out;
 
   .input-field {
     width: 90%;
+    margin: 0 auto; /* вирівнюємо по центру */
   }
 
   .sketch-button, button[data-start] {
