@@ -50,7 +50,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: 3vh;
+  margin-top: 10vh;
   background-color: #3d4c5a;
   padding: 20px;
   border-radius: 10px;
@@ -101,5 +101,4 @@ a:hover {
 
 .form button:active {
   color: #55ff00;
-  /* колір при натисканні */
 }
