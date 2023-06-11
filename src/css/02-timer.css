@@ -245,31 +245,28 @@ transition: color 0.3s ease-in-out;
 }
 
 @media (max-width: 480px) {
-  body {
-    padding-top: 2vh; 
-  }
-
   .input-group {
-    gap: 10px; 
-    justify-content: center; 
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center; /* вирівнюємо елементи по горизонталі */
   }
 
   .timer .field {
-    padding: 5px; 
-    font-size: 0.8em; 
+    padding: 10px;
+    font-size: 0.9em;
   }
 
   .timer .field .value {
-    font-size: 1.3em; 
+    font-size: 1.5em;
   }
 
   .input-field {
-    width: 80%; 
-    margin: 0 auto; 
+    width: 90%;
+    margin: 0 auto; /* вирівнюємо по центру */
   }
 
   .sketch-button, button[data-start] {
-    font-size: 1em; 
-    padding: 6px 12px; 
+    font-size: 1.2em;
+    padding: 8px 16px;
   }
 }
