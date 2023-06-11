@@ -32,7 +32,7 @@ function onSubmit(event) {
   const amountValue = Number(amountInp.value);
 
   // створюємо проміси згідно кількості amount
-  for (let i = 1; i <= amountValue; i++) {
+  for (let i = 1; i <= amountValue; i += 1) {
     createPromise(i, delayValue)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);

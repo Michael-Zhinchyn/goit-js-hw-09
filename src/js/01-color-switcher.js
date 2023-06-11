@@ -8,7 +8,7 @@ const audio = new Audio(
 // встановлюємо рівень гучності по деволту
 audioPlayer.volume = 0.3;
 
-let timerId = null
+let timerId = null;
 
 // функція генерування випадкових кольорів
 function getRandomHexColor() {
@@ -22,27 +22,25 @@ toggleSwitch.addEventListener('change', () => {
   // якщо стан чек-боксу змінився відтворюється звукив еффект клацання
   audio.play();
 
-  // Цей код виконається, коли чекбокс відмічено 
+  // Цей код виконається, коли чекбокс відмічено
   if (toggleSwitch.checked) {
-    
     // виводимо аудіоплеєр на екран
     audioPlayer.style.display = 'block';
     // вмикаємо відтворення аудіо-трека
-    audioPlayer.play(); 
+    audioPlayer.play();
 
     // встановлюємо зміну кольору фону з інтервалом 1 секунда
     timerId = setInterval(() => {
       document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
   } else {
-    // Цей код виконається, коли чекбокс стає unchecked 
+    // Цей код виконається, коли чекбокс стає unchecked
 
     // якщо чекбокс unchecked то ставимо на паузу відтворення аудіо
-    audioPlayer.pause(); 
+    audioPlayer.pause();
     // і ховаємо плеєр
-    audioPlayer.style.display = 'none'; 
-    
-    
+    audioPlayer.style.display = 'none';
+
     // видаляємо інтревал
     clearInterval(timerId);
   }
@@ -54,7 +52,6 @@ toggleSwitch.addEventListener('change', () => {
 
 // Початковий код для кнопок
 //
-
 // const startBtn = document.querySelector('button[data-start]');
 // const stopBtn = document.querySelector('button[data-stop]');
 
